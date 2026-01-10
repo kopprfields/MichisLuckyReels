@@ -22,9 +22,13 @@ wheels = [
 inserted_coins = 0;
 results = array_create(0);
 gained_coins = 0;
-owned_coins = 20;
+owned_coins = 5;
+owned_special_coins = 1;
 multiplier = 3;
 
 instance_create_layer(SCREEN_WIDTH/2+3*sprite_get_width(sprWheel)+40, 175, "UI", objAddCoin);
 instance_create_layer(SCREEN_WIDTH/2+3*sprite_get_width(sprWheel)+40, 275, "UI", objStartButton);
 instance_create_layer(SCREEN_WIDTH/2+3*sprite_get_width(sprWheel)+40, 375, "UI", objRemoveCoin);
+
+instance_create_layer(0, 0, "Instances", objCurrencyStack);
+instance_create_layer(0, 0, "Instances", objGlorpCurrencyStack);

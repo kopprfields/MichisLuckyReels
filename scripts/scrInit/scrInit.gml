@@ -14,6 +14,12 @@ enum WheelState {
 	Stopped
 }
 
+enum CoinState {
+	Pressed,
+	Dropped,
+	Used
+}
+
 enum EventFlag {
 	Idle,
 	Score,

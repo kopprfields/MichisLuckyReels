@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "fnGetArrayScore",
+  "name": "fnUseCoin",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

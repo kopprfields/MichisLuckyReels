@@ -1,16 +1,19 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objToken",
-  "spriteId": null,
+  "name": "objGlorpCoin",
+  "spriteId": {
+    "name": "sprGlorpCurrency",
+    "path": "sprites/sprGlorpCurrency/sprGlorpCurrency.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "parPausable",
-    "path": "objects/parPausable/parPausable.yy",
+    "name": "parCoin",
+    "path": "objects/parCoin/parCoin.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -26,7 +29,9 @@
   "physicsShapePoints": [],
   "eventList": [],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"action_script","path":"objects/parCoin/parCoin.yy",},"objectId":{"name":"parCoin","path":"objects/parCoin/parCoin.yy",},"value":"fnUseGlorpCoin",},
+  ],
   "parent": {
     "name": "Objects",
     "path": "folders/Objects.yy",
