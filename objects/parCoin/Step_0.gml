@@ -28,6 +28,5 @@ switch(current_state)
 		{
 			script_execute(action_script);
 		}
-		instance_destroy(parCoin);
 		break;
 }

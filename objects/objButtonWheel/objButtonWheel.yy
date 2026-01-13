@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "parPausableButton",
-    "path": "objects/parPausableButton/parPausableButton.yy",
+    "name": "parButton",
+    "path": "objects/parButton/parButton.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -29,6 +29,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":7,"eventType":6,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"parent_wheel","varType":1,"value":"-1","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},

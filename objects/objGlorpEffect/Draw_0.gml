@@ -1,0 +1,1 @@
+draw_sprite(sprite_index, glorp_effect_id, x, y);

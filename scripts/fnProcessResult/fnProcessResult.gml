@@ -24,11 +24,5 @@ function fnProcessResult(_inserted_coins){
 		if(hit != undefined) array_push(result, hit)
 	}
 	
-	//Check Whimsy event
-	if(ds_grid_value_exists(result_grid, 0, 0, 2, 2, symbols_list[Symbols.Whimsy]))
-	{
-		sysGlobal.flags[EventFlag.Whimsy] = true;
-	}
-	
 	return result;
 }

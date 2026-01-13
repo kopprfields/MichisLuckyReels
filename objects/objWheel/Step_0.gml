@@ -19,7 +19,7 @@ switch(current_state)
 			current_position = 0;
 			//If wheel is not in slow mode, shuffle at start
 			if(wheel_speed > 0.2) 
-				ds_list_shuffle(wheel_values);
+				fnInitializeWheel();
 			current_state = WheelState.Turning;
 			alarm[2] = (10 + wheel_number)*room_speed;
 		}

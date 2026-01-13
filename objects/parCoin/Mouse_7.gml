@@ -1,4 +1,4 @@
 /// @description Change state
-current_state = CoinState.Dropped
+current_state = CoinState.Used
 
 

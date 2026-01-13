@@ -14,6 +14,12 @@ enum WheelState {
 	Stopped
 }
 
+enum ButtonState {
+	Idle,
+	Pressed,
+	Disabled
+}
+
 enum CoinState {
 	Pressed,
 	Dropped,
@@ -25,7 +31,12 @@ enum EventFlag {
 	Score,
 	TooBad,
 	Whimsy,
-	Jared,
+	Glorp,
+	Tts,
+	Ferro,
+	SuperJared,
+	Mita,
+	Fii,
 	GigaJackpot,
 	Collab,
 	SIZE
@@ -43,24 +54,21 @@ enum Symbols {
 	Fii,
 	Mita,
 	
-	//Special symbols - TO REWORK, Maiko, Ferro and Glorp will be added as a separate Whimsy roulette
-	Whimsy,
-	/*Maiko, // Also counts as collab symbol, if paired with Michi => Ai Neko | 1 on each wheel
-	Ferro, // 5 on each wheel
-	Glorp, // 3 on each wheel
-	
-	//Collab symbols
-	Numi, //Hell of a Good Time
-	Camila, //Kill-V-Maim
-	Usan, //Usan raging at Michi during his concert?
-	Kuro, //Deja Vu
-	Heavenly, //10 seconds of pepper spray clip?
-	Ollie, // Matrioshka
-	Jowol, //Mr Twitch impersonation clip?
-	Mono, //Just a Little Shrimp song
-	*/
+	//Special symbols
+	Whimsy, //Type only, no actual symbol
+	Glorp,
+	Tts,
+	Ferro,
 	SIZE
 }
+
+enum GlorpEffects {
+	Undiscovered,
+	Discovered
+}
+
+
+#macro CURVE_CUBIC animcurve_get_channel(acCommon, 0)
 
 #macro GAME_STATE sysGlobal.game_state
 #macro SCREEN_WIDTH sysGlobal.screen_width
@@ -74,3 +82,6 @@ enum Symbols {
 #macro MITA sysGlobal.symbols_list[Symbols.Mita]
 #macro FII sysGlobal.symbols_list[Symbols.Fii]
 #macro WHIMSY sysGlobal.symbols_list[Symbols.Whimsy]
+#macro GLORP sysGlobal.symbols_list[Symbols.Glorp]
+#macro TTS sysGlobal.symbols_list[Symbols.Tts]
+#macro FERRO sysGlobal.symbols_list[Symbols.Ferro]

@@ -31,9 +31,8 @@ switch(GAME_STATE)
 				current_state = WheelState.Idle;
 			}
 			
-			results = fnProcessResult(inserted_coins);
+			results = fnProcessResult(inserted_coins+inserted_special_coins);
 			
-			gained_coins = 0;
 			if(array_length(results) == 0)
 			{
 				flags[EventFlag.TooBad] = true;
@@ -41,20 +40,16 @@ switch(GAME_STATE)
 			else
 			{
 				flags[EventFlag.Score] = true;
-				for(var j = 0; j < array_length(results); j++)
-				{
-					gained_coins += results[j].symbol.symbolScore*results[j].number*multiplier;
-				}
 			}
 			
 			if(flags[EventFlag.GigaJackpot])
 				fnActivateEvent(EventFlag.GigaJackpot, 1*room_speed);
 			else if(flags[EventFlag.Collab])
 				fnActivateEvent(EventFlag.Collab, 1);
-			else if(flags[EventFlag.Whimsy])
-				fnActivateEvent(EventFlag.Whimsy, 1*room_speed);
-			else if(flags[EventFlag.Jared])
-				fnActivateEvent(EventFlag.Jared, 1*room_speed);
+			else if(flags[EventFlag.Ferro])
+				fnActivateEvent(EventFlag.Ferro, 1*room_speed);
+			else if(flags[EventFlag.SuperJared])
+				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
 			else if(flags[EventFlag.Score])
 				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			else if(flags[EventFlag.TooBad])

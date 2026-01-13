@@ -1,0 +1,1 @@
+/// @description Manage states - inherit from this

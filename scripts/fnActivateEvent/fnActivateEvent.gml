@@ -15,7 +15,7 @@ function fnActivateEvent(_event_id, _duration){
 	
 	switch(_event_id)
 	{
-		case EventFlag.Jared:
+		case EventFlag.SuperJared:
 			audio_play_sound(sfxJared, 1, false);
 			break;
 		case EventFlag.Whimsy:

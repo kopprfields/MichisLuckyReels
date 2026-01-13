@@ -30,7 +30,7 @@
   "eventList": [],
   "properties": [],
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"position_x","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"objectId":{"name":"parCurrencyStack","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"value":"SCREEN_WIDTH-sprite_width-50",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"position_x","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"objectId":{"name":"parCurrencyStack","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"value":"SCREEN_WIDTH/2+sprite_width",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"position_y","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"objectId":{"name":"parCurrencyStack","path":"objects/parCurrencyStack/parCurrencyStack.yy",},"value":"SCREEN_HEIGHT-sprite_height-20",},
   ],
   "parent": {

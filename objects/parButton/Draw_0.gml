@@ -1,0 +1,1 @@
+draw_sprite(sprite_index, current_state, x, y);

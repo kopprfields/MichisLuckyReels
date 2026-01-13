@@ -11,17 +11,21 @@ function fnEvaluateHit(_value1, _value2, _value3){
 			if(_value1.symbolType == Symbols.Whimsy && _value2 == Symbols.Whimsy && _value3.symbolType == Symbols.Whimsy)
 			{
 				sysGlobal.flags[EventFlag.GigaJackpot] = true;
-				return {symbol: sysGlobal.symbols_list[Symbols.Whimsy], number: 3}
+				return {symbols: [_value1, _value2, _value3], isSpecialEvent: true}
 			}
 			else //Sub-case 2: at least one symbol is heart = regular triple heart score
 			{
-				return {symbol: sysGlobal.symbols_list[Symbols.Heart], number: 3}
+				return {symbols: [_value1, _value2, _value3], isSpecialEvent: false}
 			}
 		}
 		//Case 2: 2-symbols hit 
-		else if(_value1.symbolType == Symbols.Heart || _value3.symbolType == Symbols.Heart)
+		else if(_value1.symbolType == Symbols.Heart)
 		{
-			return {symbol: sysGlobal.symbols_list[Symbols.Heart], number: 2}
+			return {symbols: [_value1, _value2], isSpecialEvent: false}
+		}
+		else if(_value3.symbolType == Symbols.Heart)
+		{
+			return {symbols: [_value2, _value3], isSpecialEvent: false}
 		}
 	}
 	
@@ -30,6 +34,9 @@ function fnEvaluateHit(_value1, _value2, _value3){
 	if(_value1.symbolType != Symbols.Whimsy) symbol_type = _value1.symbolType;
 	else if(_value2.symbolType != Symbols.Whimsy) symbol_type = _value2.symbolType;
 	else symbol_type = _value3.symbolType;
+	var _isSpecialEvent = false;
+	var result_types = [_value1.symbolType, _value2.symbolType, _value3.symbolType];
+	var result_ids = [_value1.symbolId, _value2.symbolId, _value3.symbolId];
 	
 	var valid_types = [symbol_type, Symbols.Whimsy];
 	
@@ -39,10 +46,20 @@ function fnEvaluateHit(_value1, _value2, _value3){
 		//If Jared, check for Named Jared and raise corresponding flag(s) if necessary 
 		if(symbol_type == Symbols.Jared)
 		{
-			if(_value1.symbolId != _value1.symbolType || _value2.symbolId != _value2.symbolType || _value3.symbolId != _value3.symbolType)
+			if(array_contains(result_ids, Symbols.Mita) && array_contains(result_ids, Symbols.Fii))
 			{
-				sysGlobal.flags[EventFlag.Jared] = true;
-				//TO DO
+				sysGlobal.flags[EventFlag.SuperJared] = true;
+				_isSpecialEvent = true;
+			}
+			else if(array_contains(result_ids, Symbols.Mita))
+			{
+				sysGlobal.flags[EventFlag.Mita] = true;
+				_isSpecialEvent = true;
+			}
+			else if(array_contains(result_ids, Symbols.Fii))
+			{
+				sysGlobal.flags[EventFlag.Fii] = true;
+				_isSpecialEvent = true;
 			}
 		}
 		
@@ -52,11 +69,26 @@ function fnEvaluateHit(_value1, _value2, _value3){
 			if(_value1.symbolId != _value1.symbolType || _value2.symbolId != _value2.symbolType || _value3.symbolId != _value3.symbolType)
 			{
 				sysGlobal.flags[EventFlag.Collab] = true;
-				//TO DO
+				_isSpecialEvent = true;
 			}
 		}
 		
-		return {symbol: sysGlobal.symbols_list[symbol_type], number: 3}
+		//check if at least one symbol is Whimsy
+		if(array_contains(result_types, Symbols.Whimsy))
+		{
+			if(array_contains(result_ids, Symbols.Tts))
+			{
+				sysGlobal.flags[EventFlag.Tts] = true;
+				_isSpecialEvent = true;
+			}
+			if(array_contains(result_ids, Symbols.Ferro))
+			{
+				sysGlobal.flags[EventFlag.Ferro] = true;
+				_isSpecialEvent = true;
+			}
+		}
+		
+		return {symbols: [_value1, _value2, _value3], isSpecialEvent: _isSpecialEvent}
 	}
 	
 	//If no hit, return undefined

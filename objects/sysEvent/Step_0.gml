@@ -1,5 +1,10 @@
 /// @description State management
-if(GAME_STATE != GameState.Recap) exit;
+if(GAME_STATE != GameState.Recap || current_state == EventFlag.Idle) exit;
+
+//To rework: 
+//	if no score, just play the TooBad animation without pausing
+//	if score, display score calculation first, then play potential event (TTS, Jared, Ferro), then apply multiplier, then end turn
+//	if Ferro event activated, increase Ferro level by 1
 
 switch(current_state)
 {
@@ -8,25 +13,25 @@ switch(current_state)
 		{
 			sysGlobal.flags[EventFlag.TooBad] = false;
 			sysGlobal.flags[EventFlag.GigaJackpot] = false;
+			if(sysGlobal.flags[EventFlag.Ferro])
+			{
+				fnActivateEvent(EventFlag.Ferro, 1*room_speed);
+			}
 			if(sysGlobal.flags[EventFlag.Collab])
 			{
-				fnActivateEvent(EventFlag.Collab, 1*room_speed)
+				fnActivateEvent(EventFlag.Collab, 1*room_speed);
 			}
-			if(sysGlobal.flags[EventFlag.Jared])
+			if(sysGlobal.flags[EventFlag.SuperJared])
 			{
-				fnActivateEvent(EventFlag.Jared, 1*room_speed)
+				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
 			}
 			else if(sysGlobal.flags[EventFlag.Score])
 			{
-				fnActivateEvent(EventFlag.Score, 1*room_speed)
+				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			}
 			else
 			{
-				sysGlobal.inserted_coins = 0;
-				sysGlobal.multiplier = 3;
-				combo = 0;
-				current_state = EventFlag.Idle;
-				GAME_STATE = GameState.Idle;
+				fnEndTurn();
 			}
 		}
 		break;
@@ -34,66 +39,55 @@ switch(current_state)
 		if(event_finished)
 		{
 			sysGlobal.flags[EventFlag.Collab] = false;
-			if(sysGlobal.flags[EventFlag.Whimsy])
+			if(sysGlobal.flags[EventFlag.Ferro])
 			{
-				fnActivateEvent(EventFlag.Whimsy, 1*room_speed)
+				fnActivateEvent(EventFlag.Ferro, 1*room_speed);
 			}
-			if(sysGlobal.flags[EventFlag.Jared])
+			if(sysGlobal.flags[EventFlag.SuperJared])
 			{
-				fnActivateEvent(EventFlag.Jared, 1*room_speed)
+				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
 			}
 			else if(sysGlobal.flags[EventFlag.Score])
 			{
-				fnActivateEvent(EventFlag.Score, 1*room_speed)
+				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			}
 			else
 			{
-				sysGlobal.inserted_coins = 0;
-				sysGlobal.multiplier = 3;
-				combo = 0;
-				current_state = EventFlag.Idle;
-				GAME_STATE = GameState.Idle;
+				fnEndTurn();
 			}
 		}
 		break;
-	case(EventFlag.Whimsy):
+	case(EventFlag.Ferro):
 		if(event_finished)
 		{
 			sysGlobal.flags[EventFlag.TooBad] = false;
-			sysGlobal.flags[EventFlag.Whimsy] = false;
-			if(sysGlobal.flags[EventFlag.Jared])
+			sysGlobal.flags[EventFlag.Ferro] = false;
+			sysGlobal.ferro_level++;
+			if(sysGlobal.flags[EventFlag.SuperJared])
 			{
-				fnActivateEvent(EventFlag.Jared, 1*room_speed)
+				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
 			}
 			else if(sysGlobal.flags[EventFlag.Score])
 			{
-				fnActivateEvent(EventFlag.Score, 1*room_speed)
+				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			}
 			else
 			{
-				sysGlobal.inserted_coins = 0;
-				sysGlobal.multiplier = 3;
-				combo = 0;
-				current_state = EventFlag.Idle;
-				GAME_STATE = GameState.Idle;
+				fnEndTurn();
 			}
 		}
 		break;
-	case(EventFlag.Jared):
+	case(EventFlag.SuperJared):
 		if(event_finished)
 		{
-			sysGlobal.flags[EventFlag.Jared] = false;
+			sysGlobal.flags[EventFlag.SuperJared] = false;
 			if(sysGlobal.flags[EventFlag.Score])
 			{
-				fnActivateEvent(EventFlag.Score, 1*room_speed)
+				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			}
 			else
 			{
-				sysGlobal.inserted_coins = 0;
-				sysGlobal.multiplier = 3;
-				combo = 0;
-				current_state = EventFlag.Idle;
-				GAME_STATE = GameState.Idle;
+				fnEndTurn();
 			}
 		}
 		break;
@@ -101,23 +95,16 @@ switch(current_state)
 		if(event_finished)
 		{
 			sysGlobal.owned_coins += sysGlobal.gained_coins;
-			sysGlobal.inserted_coins = 0;
-			sysGlobal.multiplier = 3;
-			sysGlobal.flags[EventFlag.Score] = false;
-			current_state = EventFlag.Idle;
-			GAME_STATE = GameState.Idle;
-			combo = 0;
+			fnEndTurn();
 		}
 		break;
 	case(EventFlag.TooBad):
 		if(event_finished)
 		{
-			sysGlobal.inserted_coins = 0;
-			sysGlobal.multiplier = 3;
-			sysGlobal.flags[EventFlag.TooBad] = false;
-			current_state = EventFlag.Idle;
-			GAME_STATE = GameState.Idle;
-			combo = 0;
+			fnEndTurn();
 		}
+		break;
+	default:
+		fnEndTurn();
 		break;
 }
