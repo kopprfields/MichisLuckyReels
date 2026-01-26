@@ -7,3 +7,5 @@ current_animation_step = 0;
 
 coin_position = x-73;
 coin_offset = 73;
+
+active_effects_id = array_create(0);

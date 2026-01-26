@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "WhimsyRoulette",
-    "path": "folders/Sprites/Placeholders/WhimsyRoulette.yy",
+    "name": "Symbols",
+    "path": "folders/Sprites/Placeholders/Symbols.yy",
   },
 }

@@ -39,6 +39,7 @@ enum EventFlag {
 	Fii,
 	GigaJackpot,
 	Collab,
+	Hah,
 	SIZE
 }
 
@@ -59,12 +60,25 @@ enum Symbols {
 	Glorp,
 	Tts,
 	Ferro,
+	
 	SIZE
 }
 
 enum GlorpEffects {
 	Undiscovered,
-	Discovered
+	FeelsLagMan,
+	Assemble,
+	GlorpTax,
+	CodeMichi,
+	CorpaClap,
+	MichiMitosis,
+	DulledWhimsy,
+	BigDickEnergy,
+	IHateYou,
+	FreeBits,
+	Hah,
+	
+	SIZE
 }
 
 
@@ -74,14 +88,24 @@ enum GlorpEffects {
 #macro SCREEN_WIDTH sysGlobal.screen_width
 #macro SCREEN_HEIGHT sysGlobal.screen_height
 
-#macro HEART sysGlobal.symbols_list[Symbols.Heart]
+/*#macro HEART sysGlobal.symbols_list[Symbols.Heart]
 #macro SPOON sysGlobal.symbols_list[Symbols.Spoon]
 #macro RING sysGlobal.symbols_list[Symbols.Ring]
 #macro JARED sysGlobal.symbols_list[Symbols.Jared]
 #macro MICHI sysGlobal.symbols_list[Symbols.Michi]
 #macro MITA sysGlobal.symbols_list[Symbols.Mita]
 #macro FII sysGlobal.symbols_list[Symbols.Fii]
-#macro WHIMSY sysGlobal.symbols_list[Symbols.Whimsy]
 #macro GLORP sysGlobal.symbols_list[Symbols.Glorp]
 #macro TTS sysGlobal.symbols_list[Symbols.Tts]
-#macro FERRO sysGlobal.symbols_list[Symbols.Ferro]
+#macro FERRO sysGlobal.symbols_list[Symbols.Ferro]*/
+
+#macro NEW_HEART new Symbol(Symbols.Heart, sprHeart, 1, Symbols.Heart)
+#macro NEW_SPOON new Symbol(Symbols.Ring, sprRing, 1, Symbols.Ring)
+#macro NEW_RING new Symbol(Symbols.Spoon, sprSpoon, 2, Symbols.Spoon)
+#macro NEW_JARED new Symbol(Symbols.Jared, sprJared, 3, Symbols.Jared)
+#macro NEW_MICHI new Symbol(Symbols.Michi, sprMichi, 5, Symbols.Michi)
+#macro NEW_MITA new Symbol(Symbols.Mita, sprJaredMita, 3, Symbols.Jared)
+#macro NEW_FII new Symbol(Symbols.Fii, sprJaredFii, 3, Symbols.Jared)
+#macro NEW_GLORP new Symbol(Symbols.Glorp, sprGlorp, 0, Symbols.Whimsy)
+#macro NEW_TTS new Symbol(Symbols.Tts, sprTTS, 0, Symbols.Whimsy)
+#macro NEW_FERRO new Symbol(Symbols.Ferro, sprFerro, 0, Symbols.Whimsy)

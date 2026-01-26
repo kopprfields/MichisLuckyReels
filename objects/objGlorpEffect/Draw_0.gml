@@ -1,1 +1,1 @@
-draw_sprite(sprite_index, glorp_effect_id, x, y);
+draw_sprite(sprite_index, clamp(glorp_effect_id, 0, image_number-1), x, y);

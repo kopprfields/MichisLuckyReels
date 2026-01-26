@@ -8,7 +8,8 @@ function fnAddNewGlorpEffect(){
 		{
 			coin_added = true;
 			var inst = instance_create_layer(0, 0, "UI_Middle", objGlorpEffect, {glorp_slot_id: i, glorp_effect_id: GlorpEffects.Undiscovered});
-			objGlorpEffectBar.active_effects[i] = new GlorpEffect(GlorpEffects.Undiscovered, inst);
+			objGlorpEffectBar.active_effects[i] = new GlorpEffect(GlorpEffects.Undiscovered, inst, sysGlobal.glorp_effects_meta[GlorpEffects.Undiscovered]);
+			inst.alarm[0] = 1;
 			break;
 		}
 	}

@@ -8,7 +8,7 @@ if(GAME_STATE != GameState.Recap || current_state == EventFlag.Idle) exit;
 
 switch(current_state)
 {
-	case(EventFlag.GigaJackpot):
+	/*case(EventFlag.GigaJackpot):
 		if(event_finished)
 		{
 			sysGlobal.flags[EventFlag.TooBad] = false;
@@ -90,8 +90,27 @@ switch(current_state)
 				fnEndTurn();
 			}
 		}
-		break;
+		break;*/
 	case(EventFlag.Score):
+		if(combo >=0 && combo <= array_length(sysGlobal.results))
+		{
+			gained_coins = 0;
+			gained_special_coins = 0;
+			for(var i = 0; i < clamp(combo, 0, array_length(sysGlobal.results)); i++)
+			{
+				var special_coins = 0;
+				for(var j = 0; j < array_length(sysGlobal.results[i].symbols); j++)
+				{
+					gained_coins += sysGlobal.results[i].symbols[j].symbolScore;
+					if(sysGlobal.results[i].symbols[j].symbolId == Symbols.Glorp) 
+					{
+						special_coins++;
+					}
+				}
+				gained_special_coins += special_coins;
+			}
+		}
+	
 		if(event_finished)
 		{
 			sysGlobal.owned_coins += sysGlobal.gained_coins;

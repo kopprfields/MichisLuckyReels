@@ -42,15 +42,7 @@ switch(GAME_STATE)
 				flags[EventFlag.Score] = true;
 			}
 			
-			if(flags[EventFlag.GigaJackpot])
-				fnActivateEvent(EventFlag.GigaJackpot, 1*room_speed);
-			else if(flags[EventFlag.Collab])
-				fnActivateEvent(EventFlag.Collab, 1);
-			else if(flags[EventFlag.Ferro])
-				fnActivateEvent(EventFlag.Ferro, 1*room_speed);
-			else if(flags[EventFlag.SuperJared])
-				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
-			else if(flags[EventFlag.Score])
+			if(flags[EventFlag.Score])
 				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			else if(flags[EventFlag.TooBad])
 				fnActivateEvent(EventFlag.TooBad, 1*room_speed);

@@ -20,19 +20,20 @@ switch(current_state)
 		draw_sprite(evtScore, 0, SCREEN_WIDTH/2, 100);
 		if(combo >=0)
 		{
-			gained_coins = 0;
-			gained_special_coins = 0;
 			for(var i = 0; i < clamp(combo, 0, array_length(sysGlobal.results)); i++)
 			{
 				for(var j = 0; j < array_length(sysGlobal.results[i].symbols); j++)
 				{
 					draw_sprite_ext(sysGlobal.results[i].symbols[j].symbolSprite, 0, SCREEN_WIDTH/4+j*20, 150+i*28, 0.5, 0.5, 0, c_white, 1);
-					gained_coins += sysGlobal.results[i].symbols[j].symbolScore;
 				}
-				gained_special_coins += array_count(sysGlobal.results[i].symbols, sysGlobal.symbols_list[Symbols.Glorp]);
 			}
 			draw_text(3*SCREEN_WIDTH/4, 100, "+" + string(gained_coins) + " x" + string(sysGlobal.multiplier) + " coins");
 			draw_text(3*SCREEN_WIDTH/4, 120, "+" + string(gained_special_coins) + " glorp coins");
+		}
+		
+		if(draw_hah)
+		{
+			draw_text(3*SCREEN_WIDTH/4, 140, "HAH! -3 coins");
 		}
 		break;
 	case(EventFlag.TooBad):

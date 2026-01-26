@@ -35,9 +35,51 @@ function fnEndTurn(){
 	sysEvent.current_state = EventFlag.Idle;
 	GAME_STATE = GameState.Idle;
 	
-	//Reset all flags
+	//Reset all flags except Glorp effects
 	for(var i = 0; i < array_length(sysGlobal.flags); i++)
 	{
-		if(sysGlobal.flags[i]) sysGlobal.flags[i] = false;
+		if(i != EventFlag.Hah)
+		{
+			if(sysGlobal.flags[i]) 
+			{
+				sysGlobal.flags[i] = false;
+			}
+		}
+	}
+	
+	//Manage Glorp effects
+	for(var i = 0; i < array_length(objGlorpEffectBar.active_effects); i++)
+	{
+		if(objGlorpEffectBar.active_effects[i] != undefined)
+		{
+			if(objGlorpEffectBar.active_effects[i].glorpEffectId != GlorpEffects.Undiscovered)
+			{
+				objGlorpEffectBar.active_effects[i].glorpEffectDuration--;
+				
+				if(objGlorpEffectBar.active_effects[i].glorpEffectDuration <= 0)
+				{
+					var effect_id = objGlorpEffectBar.active_effects[i].glorpEffectId;
+					var wheels = objGlorpEffectBar.active_effects[i].glorpEffectWheel;
+					
+					instance_destroy(objGlorpEffectBar.active_effects[i].glorpEffectInstance)
+					objGlorpEffectBar.active_effects[i] = undefined;
+					for(var j = 0; j < array_length(objGlorpEffectBar.active_effects_id); j++)
+					{
+						if(objGlorpEffectBar.active_effects_id[j] == effect_id)
+						{
+							array_delete(objGlorpEffectBar.active_effects_id, j, 1);
+							break;
+						}
+					}
+					//Disable effect
+					fnDisableGlorpEffect(effect_id, wheels);
+				}
+				else
+				{
+					//Update name & description
+					objGlorpEffectBar.active_effects[i].glorpEffectInstance.alarm[0] = 1;
+				}
+			}
+		}
 	}
 }

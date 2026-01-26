@@ -1,16 +1,6 @@
 /// @description Initialization
-symbols_list = array_create(Symbols.SIZE, "buhh");
-array_set(symbols_list, Symbols.Heart, new Symbol(Symbols.Heart, sprHeart, 1, Symbols.Heart));
-array_set(symbols_list, Symbols.Ring, new Symbol(Symbols.Ring, sprRing, 1, Symbols.Ring));
-array_set(symbols_list, Symbols.Spoon, new Symbol(Symbols.Spoon, sprSpoon, 2, Symbols.Spoon));
-array_set(symbols_list, Symbols.Jared, new Symbol(Symbols.Jared, sprJared, 3, Symbols.Jared));
-array_set(symbols_list, Symbols.Fii, new Symbol(Symbols.Fii, sprJaredFii, 3, Symbols.Jared));
-array_set(symbols_list, Symbols.Mita, new Symbol(Symbols.Mita, sprJaredMita, 3, Symbols.Jared));
-array_set(symbols_list, Symbols.Michi, new Symbol(Symbols.Michi, sprMichi, 5, Symbols.Michi));
-array_set(symbols_list, Symbols.Whimsy, new Symbol(Symbols.Whimsy, sprWhimsy, 0, Symbols.Whimsy));
-array_set(symbols_list, Symbols.Glorp, new Symbol(Symbols.Glorp, sprGlorp, 0, Symbols.Whimsy));
-array_set(symbols_list, Symbols.Tts, new Symbol(Symbols.Tts, sprTTS, 0, Symbols.Whimsy));
-array_set(symbols_list, Symbols.Ferro, new Symbol(Symbols.Ferro, sprFerro, 0, Symbols.Whimsy));
+//fnInitializeSymbols();
+fnInitializeGlorpEffects();
 
 flags = array_create(EventFlag.SIZE, false);
 

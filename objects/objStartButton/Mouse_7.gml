@@ -10,40 +10,19 @@ if(GAME_STATE == GameState.Idle && sysGlobal.inserted_coins+sysGlobal.inserted_s
 	if(sysGlobal.cumuled_gained_coins >= sysGlobal.ferro_level*100)
 	{
 		//Check if Ferro symbol exists
-		var activate_ferro_event = true;
-		for(var i = 0; i < 2; i++)
+		if(sysGlobal.wheels[1].nb_ferro <= 0 && sysGlobal.wheels[1].wheel_speed > 0.2)
 		{
-			if(sysGlobal.wheels[i].nb_ferro > 0)
-			{
-				activate_ferro_event = false;
-				break;
-			}
-		}
-		
-		//If Ferro symbol does not exist, select a suitable wheel and set its nb_ferro to 1
-		if(activate_ferro_event)
-		{
-			for(var i = 0; i < 2; i++)
-			{
-				if(sysGlobal.wheels[i].wheel_speed > 0.2)
-				{
-					sysGlobal.wheels[i].nb_ferro = 1;
-					sysGlobal.wheels[i].nb_glorp = 0;
-					sysGlobal.wheels[i].nb_tts = 0;
-					break;
-				}
-			}
+			sysGlobal.wheels[1].nb_ferro = 1;
+			sysGlobal.wheels[1].nb_glorp = 0;
+			sysGlobal.wheels[1].nb_tts = 0;
 		}
 	}
 	else
 	{
-		for(var i = 0; i < 2; i++)
+		if(sysGlobal.wheels[1].nb_ferro > 0)
 		{
-			if(sysGlobal.wheels[i].nb_ferro > 0)
-			{
-				sysGlobal.wheels[i].nb_ferro = 0;
-				sysGlobal.wheels[i].nb_glorp = 1;
-			}
+			sysGlobal.wheels[1].nb_ferro = 0;
+			sysGlobal.wheels[1].nb_glorp = 1;
 		}
 	}
 	GAME_STATE = GameState.WheelStarting;

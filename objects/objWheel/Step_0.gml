@@ -13,13 +13,12 @@ switch(current_state)
 		}
 		else
 		{
+			//Shuffle the wheel, then switch to Turning state
+			fnInitializeWheel();
 			if(current_index > 0) current_index--;
 			else current_index = ds_list_size(wheel_values)-1;
 			current_animation_step = 0;
 			current_position = 0;
-			//If wheel is not in slow mode, shuffle at start
-			if(wheel_speed > 0.2) 
-				fnInitializeWheel();
 			current_state = WheelState.Turning;
 			alarm[2] = (10 + wheel_number)*room_speed;
 		}
@@ -32,6 +31,10 @@ switch(current_state)
 		else
 		{
 			current_index--;
+			if(wheel_values_tmp_count > 0)
+			{
+				wheel_values_tmp_count--;
+			}
 			if(current_index < 0)
 			{
 				current_index = ds_list_size(wheel_values)-1;
