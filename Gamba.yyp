@@ -80,6 +80,7 @@
     {"id":{"name":"sprButtonUp","path":"sprites/sprButtonUp/sprButtonUp.yy",},"order":1,},
     {"id":{"name":"fnEvaluateHit","path":"scripts/fnEvaluateHit/fnEvaluateHit.yy",},"order":8,},
     {"id":{"name":"sfxCombo3","path":"sounds/sfxCombo3/sfxCombo3.yy",},"order":6,},
+    {"id":{"name":"sprBrokenHeart","path":"sprites/sprBrokenHeart/sprBrokenHeart.yy",},"order":11,},
     {"id":{"name":"evtMitaFii","path":"sprites/evtMitaFii/evtMitaFii.yy",},"order":2,},
     {"id":{"name":"sprJaredFii","path":"sprites/sprJaredFii/sprJaredFii.yy",},"order":4,},
     {"id":{"name":"sfxWhimsy","path":"sounds/sfxWhimsy/sfxWhimsy.yy",},"order":3,},

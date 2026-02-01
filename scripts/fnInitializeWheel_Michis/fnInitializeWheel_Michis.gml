@@ -4,7 +4,14 @@ function fnInitializeWheel_Michis(){
 	var symbol;
 	repeat(nb_michi)
 	{
-		symbol = NEW_MICHI;
+		if(long_long_man)
+		{
+			symbol = NEW_MICHI;
+		}
+		else
+		{
+			symbol = NEW_MICHI;
+		}
 		ds_list_add(wheel_values, symbol);
 	}
 }

@@ -1,9 +1,9 @@
 // Les actifs du script ont changé pour v2.3.0 Voir
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 pour plus d’informations
 function fnEndTurn(){
-	sysGlobal.owned_coins += sysEvent.gained_coins*sysGlobal.multiplier;
-	sysGlobal.owned_special_coins += sysEvent.gained_special_coins;
-	sysGlobal.cumuled_gained_coins += sysEvent.gained_coins*sysGlobal.multiplier + sysEvent.gained_special_coins;
+	sysGlobal.owned_coins += floor(max(sysEvent.gained_coins, 0)*(sysGlobal.multiplier+sysEvent.bonus_multiplier));
+	sysGlobal.owned_special_coins += floor(sysEvent.gained_special_coins);
+	sysGlobal.cumuled_gained_coins += floor(sysEvent.gained_coins*(sysGlobal.multiplier+sysEvent.bonus_multiplier) + sysEvent.gained_special_coins*sysGlobal.special_coin_value);
 	
 	//manage Whimsy mode
 	if(!sysGlobal.whimsy_mode)
@@ -28,17 +28,26 @@ function fnEndTurn(){
 	sysEvent.gained_coins = 0;
 	sysEvent.gained_special_coins = 0;
 	
-	sysGlobal.inserted_coins = 0;
+	if(sysGlobal.flags[EventFlag.CorpaClap])
+	{
+		sysGlobal.inserted_coins = sysGlobal.bet_base_price;
+	}
+	else
+	{
+		sysGlobal.inserted_coins = 0;
+	}
+	fnSetMultiplier();
 	sysGlobal.inserted_special_coins = 0;
-	sysGlobal.multiplier = 3;
+	sysGlobal.bet_level = 0;
 	sysEvent.combo = 0;
 	sysEvent.current_state = EventFlag.Idle;
+	sysEvent.bonus_multiplier = 0;
 	GAME_STATE = GameState.Idle;
 	
 	//Reset all flags except Glorp effects
 	for(var i = 0; i < array_length(sysGlobal.flags); i++)
 	{
-		if(i != EventFlag.Hah)
+		if(!array_contains(flags_to_keep_on, i))
 		{
 			if(sysGlobal.flags[i]) 
 			{

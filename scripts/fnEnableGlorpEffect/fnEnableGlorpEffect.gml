@@ -53,6 +53,30 @@ function fnEnableGlorpEffect(_effect_id, _wheels){
 				sysGlobal.wheels[wheels_id[i]].wheel_speed = 0.1;
 			}
 			break;
+		case(GlorpEffects.BigDickEnergy):
+			for(var i = 0; i < array_length(wheels_id); i++)
+			{
+				sysGlobal.wheels[wheels_id[i]].long_long_man = true;
+			}
+			break;
+		case(GlorpEffects.IHateYou):
+			for(var i = 0; i < array_length(wheels_id); i++)
+			{
+				sysGlobal.wheels[wheels_id[i]].i_hate_you = true;
+			}
+			break;
+		case(GlorpEffects.CodeMichi):
+			sysGlobal.flags[EventFlag.CodeMichi] = true;
+			break;
+		case(GlorpEffects.CorpaClap):
+			sysGlobal.flags[EventFlag.CorpaClap] = true;
+			break;
+		case(GlorpEffects.FreeBits):
+			sysGlobal.flags[EventFlag.FreeBits] = true;
+			break;
+		case(GlorpEffects.GlorpTax):
+			sysGlobal.flags[EventFlag.GlorpTax] = true;
+			break;
 		case(GlorpEffects.Hah):
 			sysGlobal.flags[EventFlag.Hah] = true;
 			break;

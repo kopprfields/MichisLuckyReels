@@ -12,13 +12,18 @@ wheels = [
 	instance_create_layer(SCREEN_WIDTH/2+sprite_get_width(sprWheel)+10, SCREEN_HEIGHT/2-50, "Instances", objWheel, {wheel_number: 2, nb_jared: 4, nb_fii: 2})
 ];
 
+bet_level = 0;
+bet_base_price = 1;
+bet_increment = 1;
 inserted_coins = 0;
 inserted_special_coins = 0;
 cumuled_gained_coins = 0;
 ferro_level = 1;
+ferro_step = 50;
 gained_coins = 0;
 owned_coins = 20;
 owned_special_coins = 5;
+special_coin_value = 5;
 multiplier = 3;
 whimsy_meter = 0;
 whimsy_mode = false;

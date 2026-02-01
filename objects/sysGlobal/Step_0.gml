@@ -42,6 +42,12 @@ switch(GAME_STATE)
 				flags[EventFlag.Score] = true;
 			}
 			
+			//Check for Ferro activation
+			if(ferro_level*ferro_step < cumuled_gained_coins)
+			{
+				flags[EventFlag.Ferro] = true;
+			}
+			
 			if(flags[EventFlag.Score])
 				fnActivateEvent(EventFlag.Score, 1*room_speed);
 			else if(flags[EventFlag.TooBad])

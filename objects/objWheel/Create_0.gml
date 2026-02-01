@@ -5,6 +5,8 @@ current_index = 5;
 dulled_whimsy = false;
 assemble = false;
 michimitosis = false;
+i_hate_you = false;
+long_long_man = false;
 
 distance = sprite_height/5;
 current_position = 0;

@@ -8,7 +8,7 @@ if(GAME_STATE == GameState.Idle)
 	//Remove special coins in priority
 	if(sysGlobal.inserted_special_coins > 0)
 	{
-		sysGlobal.inserted_special_coins--;
+		sysGlobal.inserted_special_coins -= sysGlobal.special_coin_value;
 		sysGlobal.owned_special_coins++;
 		if(array_length(objGlorpEffectBar.active_effects) > 0)
 		{

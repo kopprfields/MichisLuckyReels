@@ -53,6 +53,30 @@ function fnDisableGlorpEffect(_effect_id, _wheels){
 				sysGlobal.wheels[wheels_id[i]].wheel_speed = 0.5;
 			}
 			break;
+		case(GlorpEffects.BigDickEnergy):
+			for(var i = 0; i < array_length(wheels_id); i++)
+			{
+				sysGlobal.wheels[wheels_id[i]].long_long_man = false;
+			}
+			break;
+		case(GlorpEffects.IHateYou):
+			for(var i = 0; i < array_length(wheels_id); i++)
+			{
+				sysGlobal.wheels[wheels_id[i]].i_hate_you = false;
+			}
+			break;
+		case(GlorpEffects.CodeMichi):
+			sysGlobal.flags[EventFlag.CodeMichi] = false;
+			break;
+		case(GlorpEffects.CorpaClap):
+			sysGlobal.flags[EventFlag.CorpaClap] = false;
+			break;
+		case(GlorpEffects.FreeBits):
+			sysGlobal.flags[EventFlag.FreeBits] = false;
+			break;
+		case(GlorpEffects.GlorpTax):
+			sysGlobal.flags[EventFlag.GlorpTax] = false;
+			break;
 		case(GlorpEffects.Hah):
 			sysGlobal.flags[EventFlag.Hah] = false;
 			break;

@@ -13,7 +13,7 @@ if(GAME_STATE == GameState.Idle)
 	}
 	else
 	{
-		sysGlobal.inserted_special_coins++;
+		sysGlobal.inserted_special_coins += sysGlobal.special_coin_value;
 		sysGlobal.owned_special_coins--;
 		fnAddNewGlorpEffect();
 	}

@@ -18,6 +18,7 @@ switch(current_state)
 		break;
 	case(EventFlag.Score):
 		draw_sprite(evtScore, 0, SCREEN_WIDTH/2, 100);
+		draw_text(SCREEN_WIDTH/2, SCREEN_HEIGHT-100, "TOTAL: " + string(floor(max(gained_coins, 0)*(sysGlobal.multiplier+bonus_multiplier))) + " coins");
 		if(combo >=0)
 		{
 			for(var i = 0; i < clamp(combo, 0, array_length(sysGlobal.results)); i++)
@@ -27,13 +28,30 @@ switch(current_state)
 					draw_sprite_ext(sysGlobal.results[i].symbols[j].symbolSprite, 0, SCREEN_WIDTH/4+j*20, 150+i*28, 0.5, 0.5, 0, c_white, 1);
 				}
 			}
-			draw_text(3*SCREEN_WIDTH/4, 100, "+" + string(gained_coins) + " x" + string(sysGlobal.multiplier) + " coins");
-			draw_text(3*SCREEN_WIDTH/4, 120, "+" + string(gained_special_coins) + " glorp coins");
+			draw_text(3*SCREEN_WIDTH/5, 100, "+" + string(max(gained_coins, 0)) + " x" + string(sysGlobal.multiplier+bonus_multiplier) + " coins");
+			draw_text(3*SCREEN_WIDTH/5, 120, "+" + string(max(gained_special_coins, 0)) + " glorp coins");
 		}
 		
+		var event_count = 1;
 		if(draw_hah)
 		{
-			draw_text(3*SCREEN_WIDTH/4, 140, "HAH! -3 coins");
+			draw_text(3*SCREEN_WIDTH/5, 120+20*event_count, "HAH! -3 coins");
+			event_count++;
+		}
+		if(draw_free_bits)
+		{
+			draw_text(3*SCREEN_WIDTH/5, 120+20*event_count, "Free bits! +5 coins");
+			event_count++;
+		}
+		if(draw_glorp_tax)
+		{
+			draw_text(3*SCREEN_WIDTH/5, 120+20*event_count, "Glorp! -50% coins");
+			event_count++;
+		}
+		if(draw_code_michi)
+		{
+			draw_text(3*SCREEN_WIDTH/5, 120+20*event_count, "Michi! +25% coins");
+			event_count++;
 		}
 		break;
 	case(EventFlag.TooBad):

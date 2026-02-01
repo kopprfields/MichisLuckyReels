@@ -20,7 +20,14 @@ function fnInitializeWheel(){
 	
 	repeat(nb_heart)
 	{
-		symbol = NEW_HEART;
+		if(i_hate_you)
+		{
+			symbol = NEW_BROKEN_HEART;
+		}
+		else
+		{
+			symbol = NEW_HEART;
+		}
 		ds_list_add(wheel_values, symbol);
 	}
 	repeat(nb_ring)

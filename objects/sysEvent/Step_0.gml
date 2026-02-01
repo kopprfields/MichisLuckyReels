@@ -57,26 +57,7 @@ switch(current_state)
 			}
 		}
 		break;
-	case(EventFlag.Ferro):
-		if(event_finished)
-		{
-			sysGlobal.flags[EventFlag.TooBad] = false;
-			sysGlobal.flags[EventFlag.Ferro] = false;
-			sysGlobal.ferro_level++;
-			if(sysGlobal.flags[EventFlag.SuperJared])
-			{
-				fnActivateEvent(EventFlag.SuperJared, 1*room_speed);
-			}
-			else if(sysGlobal.flags[EventFlag.Score])
-			{
-				fnActivateEvent(EventFlag.Score, 1*room_speed);
-			}
-			else
-			{
-				fnEndTurn();
-			}
-		}
-		break;
+	
 	case(EventFlag.SuperJared):
 		if(event_finished)
 		{
@@ -113,7 +94,7 @@ switch(current_state)
 	
 		if(event_finished)
 		{
-			sysGlobal.owned_coins += sysGlobal.gained_coins;
+			//sysGlobal.owned_coins += sysGlobal.gained_coins;
 			fnEndTurn();
 		}
 		break;

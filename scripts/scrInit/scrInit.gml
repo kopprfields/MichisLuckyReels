@@ -40,11 +40,16 @@ enum EventFlag {
 	GigaJackpot,
 	Collab,
 	Hah,
+	CodeMichi,
+	CorpaClap,
+	FreeBits,
+	GlorpTax,
 	SIZE
 }
 
 enum Symbols {
 	//Regular symbols
+	BrokenHeart,
 	Heart,
 	Ring,
 	Spoon,
@@ -100,6 +105,7 @@ enum GlorpEffects {
 #macro FERRO sysGlobal.symbols_list[Symbols.Ferro]*/
 
 #macro NEW_HEART new Symbol(Symbols.Heart, sprHeart, 1, Symbols.Heart)
+#macro NEW_BROKEN_HEART new Symbol(Symbols.BrokenHeart, sprBrokenHeart, -1, Symbols.Heart)
 #macro NEW_SPOON new Symbol(Symbols.Ring, sprRing, 1, Symbols.Ring)
 #macro NEW_RING new Symbol(Symbols.Spoon, sprSpoon, 2, Symbols.Spoon)
 #macro NEW_JARED new Symbol(Symbols.Jared, sprJared, 3, Symbols.Jared)
