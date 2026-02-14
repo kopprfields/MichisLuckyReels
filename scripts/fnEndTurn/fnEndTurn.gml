@@ -69,6 +69,7 @@ function fnEndTurn(){
 				{
 					var effect_id = objGlorpEffectBar.active_effects[i].glorpEffectId;
 					var wheels = objGlorpEffectBar.active_effects[i].glorpEffectWheel;
+					var mode = objGlorpEffectBar.active_effects[i].glorpEffectInstance.mode;
 					
 					instance_destroy(objGlorpEffectBar.active_effects[i].glorpEffectInstance)
 					objGlorpEffectBar.active_effects[i] = undefined;
@@ -81,7 +82,7 @@ function fnEndTurn(){
 						}
 					}
 					//Disable effect
-					fnDisableGlorpEffect(effect_id, wheels);
+					fnDisableGlorpEffect(effect_id, wheels, mode);
 				}
 				else
 				{

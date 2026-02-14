@@ -1,6 +1,6 @@
 // Les actifs du script ont changé pour v2.3.0 Voir
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 pour plus d’informations
-function fnEvaluateHit(_value1, _value2, _value3){
+function fnEvaluateHit(_value1, _value2, _value3, _is_diagonal = false){
 	//Check for heart first because only 2 values are needed for a hit
 	if(_value2.symbolType == Symbols.Heart || _value2.symbolType == Symbols.Whimsy)
 	{
@@ -19,11 +19,11 @@ function fnEvaluateHit(_value1, _value2, _value3){
 			}
 		}
 		//Case 2: 2-symbols hit 
-		else if(_value1.symbolType == Symbols.Heart)
+		else if((_value1.symbolType == Symbols.Heart && _value2.symbolType == Symbols.Whimsy) || (_value1.symbolType == Symbols.Whimsy && _value2.symbolType == Symbols.Heart) || (_value1.symbolType == Symbols.Heart && _value2.symbolType == Symbols.Heart))
 		{
 			return {symbols: [_value1, _value2], isSpecialEvent: false}
 		}
-		else if(_value3.symbolType == Symbols.Heart)
+		else if((_value3.symbolType == Symbols.Heart && _value2.symbolType == Symbols.Whimsy) || (_value3.symbolType == Symbols.Whimsy && _value2.symbolType == Symbols.Heart) || (_value3.symbolType == Symbols.Heart && _value2.symbolType == Symbols.Heart))
 		{
 			return {symbols: [_value2, _value3], isSpecialEvent: false}
 		}
@@ -43,6 +43,12 @@ function fnEvaluateHit(_value1, _value2, _value3){
 	//Check for hit
 	if(array_contains(valid_types, _value1.symbolType) && array_contains(valid_types, _value2.symbolType) && array_contains(valid_types, _value3.symbolType))
 	{
+		//If Longboi, only score points if not on a diagonal
+		if(symbol_type == Symbols.Longboi && _is_diagonal)
+		{
+			return undefined;
+		}
+		
 		//If Jared, check for Named Jared and raise corresponding flag(s) if necessary 
 		if(symbol_type == Symbols.Jared)
 		{

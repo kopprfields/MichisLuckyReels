@@ -16,5 +16,5 @@ draw_text(20, 40, "Current bet: " + string(inserted_coins+inserted_special_coins
 var delta = (inserted_coins+inserted_special_coins) - (bet_base_price + 2*bet_increment);
 if(delta > 0)
 {
-	draw_text(20, 60, "WARNING! " + string(delta) + " will be lost");	
+	draw_text(20, 60, "Over-limit: " + string(delta) + " coins");	
 }

@@ -6,6 +6,7 @@ function GlorpEffect(_id, _instance, _metadata, _wheel_id = noone, _duration = 1
 	glorpEffectWheel = _wheel_id;
 	glorpEffectDuration = _duration;
 	glorpEffectMeta = _metadata;
+	glorpEffectAttribute = noone;
 }
 
 function GlorpMeta(_id, _name, _description, _turns = -1) constructor{

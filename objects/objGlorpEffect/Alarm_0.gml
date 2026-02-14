@@ -1,7 +1,7 @@
 /// @description Update descriptions
-glorp_effect_name = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectMeta.glorpEffectName;
+glorp_effect_name = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectMeta.glorpEffectName[mode];
 
-var description = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectMeta.glorpEffectDescription;
+var description = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectMeta.glorpEffectDescription[mode];
 var turns = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectDuration;
 var wheels = objGlorpEffectBar.active_effects[glorp_slot_id].glorpEffectWheel;
 
@@ -41,4 +41,10 @@ else
 	description = string_replace(description, "{TURNS}", string(turns) + " turns");
 }
 
+angle = (mode) ? 180 : 0;
+
 glorp_effect_description = description;
+
+draw_set_font(fntGlorp);
+description_height = string_height_ext(glorp_effect_description, string_height("a"), description_max_width);
+draw_set_font(fntDefault);

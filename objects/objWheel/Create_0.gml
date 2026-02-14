@@ -4,6 +4,7 @@ current_index = 5;
 //Glorp effects
 dulled_whimsy = false;
 assemble = false;
+scatter = false;
 michimitosis = false;
 i_hate_you = false;
 long_long_man = false;

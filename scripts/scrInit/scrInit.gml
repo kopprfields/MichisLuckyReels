@@ -55,6 +55,10 @@ enum Symbols {
 	Spoon,
 	Jared,
 	Michi,
+	Longboi,
+	Longboi1,
+	Longboi2,
+	Longboi3,
 	
 	//Named Jared symbols | count as Jared
 	Fii,
@@ -73,7 +77,8 @@ enum GlorpEffects {
 	Undiscovered,
 	FeelsLagMan,
 	Assemble,
-	GlorpTax,
+	//Scatter,
+	//GlorpTax,
 	CodeMichi,
 	CorpaClap,
 	MichiMitosis,
@@ -81,7 +86,7 @@ enum GlorpEffects {
 	BigDickEnergy,
 	IHateYou,
 	FreeBits,
-	Hah,
+	//Hah,
 	
 	SIZE
 }
@@ -110,6 +115,9 @@ enum GlorpEffects {
 #macro NEW_RING new Symbol(Symbols.Spoon, sprSpoon, 2, Symbols.Spoon)
 #macro NEW_JARED new Symbol(Symbols.Jared, sprJared, 3, Symbols.Jared)
 #macro NEW_MICHI new Symbol(Symbols.Michi, sprMichi, 5, Symbols.Michi)
+#macro NEW_LONGBOI1 new Symbol(Symbols.Longboi1, sprLongboi1, 7, Symbols.Longboi)
+#macro NEW_LONGBOI2 new Symbol(Symbols.Longboi2, sprLongboi2, 7, Symbols.Longboi)
+#macro NEW_LONGBOI3 new Symbol(Symbols.Longboi3, sprLongboi3, 7, Symbols.Longboi)
 #macro NEW_MITA new Symbol(Symbols.Mita, sprJaredMita, 3, Symbols.Jared)
 #macro NEW_FII new Symbol(Symbols.Fii, sprJaredFii, 3, Symbols.Jared)
 #macro NEW_GLORP new Symbol(Symbols.Glorp, sprGlorp, 0, Symbols.Whimsy)

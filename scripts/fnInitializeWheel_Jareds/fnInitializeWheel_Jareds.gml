@@ -2,7 +2,14 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 pour plus d’informations
 function fnInitializeWheel_Jareds(){
 	var symbol;
-	repeat(nb_jared)
+	var nb_repeat = nb_jared
+	if(scatter)
+	{
+		nb_repeat = floor(nb_jared/2);
+	}
+	
+	
+	repeat(nb_repeat)
 	{
 		symbol = NEW_JARED;
 		ds_list_add(wheel_values, symbol);

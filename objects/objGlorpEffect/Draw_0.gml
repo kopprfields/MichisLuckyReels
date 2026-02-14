@@ -1,1 +1,1 @@
-draw_sprite(sprite_index, clamp(glorp_effect_id, 0, image_number-1), x, y);
+draw_sprite_ext(sprite_index, clamp(glorp_effect_id, 0, image_number-1), x, y, 1, 1, angle, c_white, 1);

@@ -1,5 +1,6 @@
 /// @description Initialization
 //fnInitializeSymbols();
+draw_set_font(fntDefault);
 fnInitializeGlorpEffects();
 
 flags = array_create(EventFlag.SIZE, false);

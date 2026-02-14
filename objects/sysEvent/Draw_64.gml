@@ -28,7 +28,7 @@ switch(current_state)
 					draw_sprite_ext(sysGlobal.results[i].symbols[j].symbolSprite, 0, SCREEN_WIDTH/4+j*20, 150+i*28, 0.5, 0.5, 0, c_white, 1);
 				}
 			}
-			draw_text(3*SCREEN_WIDTH/5, 100, "+" + string(max(gained_coins, 0)) + " x" + string(sysGlobal.multiplier+bonus_multiplier) + " coins");
+			draw_text(3*SCREEN_WIDTH/5, 100, "+" + string(gained_coins) + " x" + string(sysGlobal.multiplier+bonus_multiplier) + " coins");
 			draw_text(3*SCREEN_WIDTH/5, 120, "+" + string(max(gained_special_coins, 0)) + " glorp coins");
 		}
 		

@@ -20,18 +20,6 @@ switch(current_substate)
 		{
 			current_substate = EventFlag.Ferro;
 		}
-		/*else if(sysGlobal.flags[EventFlag.SuperJared])
-		{
-			current_substate = EventFlag.SuperJared;
-		}
-		else if(sysGlobal.flags[EventFlag.Fii])
-		{
-			current_substate = EventFlag.Fii;
-		}
-		else if(sysGlobal.flags[EventFlag.Mita])
-		{
-			current_substate = EventFlag.Mita;
-		}*/
 		else
 		{
 			current_substate = EventFlag.Idle;
@@ -53,18 +41,6 @@ switch(current_substate)
 		{
 			current_substate = EventFlag.Ferro;
 		}
-		/*else if(sysGlobal.flags[EventFlag.SuperJared])
-		{
-			current_substate = EventFlag.SuperJared;
-		}
-		else if(sysGlobal.flags[EventFlag.Fii])
-		{
-			current_substate = EventFlag.Fii;
-		}
-		else if(sysGlobal.flags[EventFlag.Mita])
-		{
-			current_substate = EventFlag.Mita;
-		}*/
 		else
 		{
 			current_substate = EventFlag.Idle;
@@ -73,7 +49,7 @@ switch(current_substate)
 		break;
 	case(EventFlag.GlorpTax):
 		draw_glorp_tax = true;
-		bonus_multiplier -= 0.5;
+		bonus_multiplier -= sysGlobal.multiplier/2;
 		
 		if(sysGlobal.flags[EventFlag.CodeMichi])
 		{
@@ -83,18 +59,6 @@ switch(current_substate)
 		{
 			current_substate = EventFlag.Ferro;
 		}
-		/*else if(sysGlobal.flags[EventFlag.SuperJared])
-		{
-			current_substate = EventFlag.SuperJared;
-		}
-		else if(sysGlobal.flags[EventFlag.Fii])
-		{
-			current_substate = EventFlag.Fii;
-		}
-		else if(sysGlobal.flags[EventFlag.Mita])
-		{
-			current_substate = EventFlag.Mita;
-		}*/
 		else
 		{
 			current_substate = EventFlag.Idle;
@@ -103,24 +67,12 @@ switch(current_substate)
 		break;
 	case(EventFlag.CodeMichi):
 		draw_code_michi = true;
-		bonus_multiplier += 0.25;
+		bonus_multiplier += sysGlobal.multiplier/4;
 		
 		if(sysGlobal.flags[EventFlag.Ferro])
 		{
 			current_substate = EventFlag.Ferro;
 		}
-		/*else if(sysGlobal.flags[EventFlag.SuperJared])
-		{
-			current_substate = EventFlag.SuperJared;
-		}
-		else if(sysGlobal.flags[EventFlag.Fii])
-		{
-			current_substate = EventFlag.Fii;
-		}
-		else if(sysGlobal.flags[EventFlag.Mita])
-		{
-			current_substate = EventFlag.Mita;
-		}*/
 		else
 		{
 			current_substate = EventFlag.Idle;

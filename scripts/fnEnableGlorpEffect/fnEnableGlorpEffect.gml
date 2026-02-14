@@ -1,6 +1,6 @@
 // Les actifs du script ont changé pour v2.3.0 Voir
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 pour plus d’informations
-function fnEnableGlorpEffect(_effect_id, _wheels){
+function fnEnableGlorpEffect(_effect_id, _wheels, _mode = false){
 	var wheels_id = array_create(0);
 	switch(_wheels)
 	{
@@ -30,9 +30,19 @@ function fnEnableGlorpEffect(_effect_id, _wheels){
 	switch(_effect_id)
 	{
 		case(GlorpEffects.Assemble):
-			for(var i = 0; i < array_length(wheels_id); i++)
+			if(!_mode)
 			{
-				sysGlobal.wheels[wheels_id[i]].assemble = true;
+				for(var i = 0; i < array_length(wheels_id); i++)
+				{
+					sysGlobal.wheels[wheels_id[i]].assemble = true;
+				}
+			}
+			else
+			{
+				for(var i = 0; i < array_length(wheels_id); i++)
+				{
+					sysGlobal.wheels[wheels_id[i]].scatter = true;
+				}
 			}
 			break;
 		case(GlorpEffects.DulledWhimsy):
@@ -54,9 +64,9 @@ function fnEnableGlorpEffect(_effect_id, _wheels){
 			}
 			break;
 		case(GlorpEffects.BigDickEnergy):
-			for(var i = 0; i < array_length(wheels_id); i++)
+			for(var i = 0; i < array_length(sysGlobal.wheels); i++)
 			{
-				sysGlobal.wheels[wheels_id[i]].long_long_man = true;
+				sysGlobal.wheels[i].long_long_man = true;
 			}
 			break;
 		case(GlorpEffects.IHateYou):
@@ -66,19 +76,27 @@ function fnEnableGlorpEffect(_effect_id, _wheels){
 			}
 			break;
 		case(GlorpEffects.CodeMichi):
-			sysGlobal.flags[EventFlag.CodeMichi] = true;
+			if(!_mode)
+			{
+				sysGlobal.flags[EventFlag.CodeMichi] = true;
+			}
+			else
+			{
+				sysGlobal.flags[EventFlag.GlorpTax] = true;
+			}
 			break;
 		case(GlorpEffects.CorpaClap):
 			sysGlobal.flags[EventFlag.CorpaClap] = true;
 			break;
 		case(GlorpEffects.FreeBits):
+			if(!_mode)
+			{
 			sysGlobal.flags[EventFlag.FreeBits] = true;
-			break;
-		case(GlorpEffects.GlorpTax):
-			sysGlobal.flags[EventFlag.GlorpTax] = true;
-			break;
-		case(GlorpEffects.Hah):
-			sysGlobal.flags[EventFlag.Hah] = true;
+			}
+			else
+			{
+				sysGlobal.flags[EventFlag.Hah] = true;
+			}
 			break;
 		default:
 			break;

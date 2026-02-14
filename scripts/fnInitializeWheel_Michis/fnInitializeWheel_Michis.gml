@@ -6,7 +6,18 @@ function fnInitializeWheel_Michis(){
 	{
 		if(long_long_man)
 		{
-			symbol = NEW_MICHI;
+			switch(wheel_number)
+			{
+				case 0:
+					symbol = NEW_LONGBOI1;
+					break;
+				case 1:
+					symbol = NEW_LONGBOI2;
+					break;
+				case 2:
+					symbol = NEW_LONGBOI3;
+					break;
+			}
 		}
 		else
 		{
